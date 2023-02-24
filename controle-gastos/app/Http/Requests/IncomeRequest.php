@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UserRequest extends FormRequest
+class IncomeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,8 +25,9 @@ class UserRequest extends FormRequest
     {
         return [
             "name" => "required",
-            "email" => "required|unique:users,email",
-            "password" => "required|min:6",
+            "frequency" => "required",
+            "value" => "required",
+            "income_type" => "required"
         ];
     }
 
@@ -38,9 +39,10 @@ class UserRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'name.required' => 'O campo Nome (name) é obrigatório',
-            'password.required' => 'O campo Senha (password) é obrigatório',
-            'email.required' => 'O campo E-mail (email) é obrigatório',
+            'name.required' => 'O campo Nome é obrigatório',
+            'frequency.required' => 'O campo Frequência é obrigatório',
+            'value.required' => 'O campo Valor é obrigatório',
+            'income_type.required' => 'O campo Tipo de Renda é obrigatório'
         ];
     }
 }

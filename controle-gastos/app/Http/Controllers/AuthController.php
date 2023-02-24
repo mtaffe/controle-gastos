@@ -71,22 +71,6 @@ class AuthController extends Controller
         } catch (\Exception $e) {
             return response()->json(['message' => 'User Registration Failed!'], Response::HTTP_CONFLICT);
         }
-       
-
-
-
-    /*
-        $token = Auth::login($user);
-        return response()->json([
-            'status' => 'success',
-            'message' => 'User created successfully',
-            'user' => $user,
-            'authorisation' => [
-                'token' => $token,
-                'type' => 'bearer',
-            ]
-        ]);
-    */
     }
 
     public function logout()

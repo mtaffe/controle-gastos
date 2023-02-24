@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Symfony\Component\HttpFoundation\Session\Session as SessionSession;
 
 class UserController extends Controller
 {
@@ -21,9 +22,10 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($userId)
     {
-        return view('user.register');
+        $user = User::find($userId);
+        return view('dashboard', ['user' => $user]);
     }
 
     /**
@@ -33,6 +35,7 @@ class UserController extends Controller
      */
     public function login()
     {
+        
         return view('user.login');
     }
 
@@ -51,7 +54,9 @@ class UserController extends Controller
         $credentials = $request->only('email', 'password');
 
         if(Auth::attempt($credentials)) {
-            return redirect('user');
+            $user = Auth::user();
+            Session::put('user', $user);
+            return redirect('/dashboard/'. $user->id);
         }
 
         return redirect('login')->with('success', 'Não foi possível realizar o login.');

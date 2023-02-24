@@ -9,9 +9,9 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 /**
- * Repository responsável por realizar as operações sobre os alunos na camada de banco.
+ * Repository responsável por realizar as operações básicas de CRUD genéricos.
  *
- * Métodos implementados para listagem completa, listagem específica, criação, atualização, reativação e delete (lógico) de alunos.
+ * Métodos implementados para listagem completa, listagem específica, criação, atualização, reativação e delete (lógico).
  *
  * @package Bases
  * @author  Marcos Medeiros <marcos.medeiros@deliverit.com.br>
@@ -41,13 +41,6 @@ class BaseRepository
         'id',
         'name',
     ];
-
-    /**
-     * Relacionamentos que serão buscados juntos da listagem
-     *
-     * @var array
-     */
-    protected array $with = [];
 
     /**
      * __construct

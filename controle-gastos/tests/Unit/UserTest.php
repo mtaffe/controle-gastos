@@ -39,4 +39,14 @@ class UserTest extends TestCase
     {
         $this->assertSame($user->email, filter_var($user->email, FILTER_VALIDATE_EMAIL));
     }
+
+    /**
+     * A basic unit test example.
+     * @dataProvider setUser
+     * @return void
+     */
+    public function testPasswordLength(User $user)
+    {
+        
+    }
 }
