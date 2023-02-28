@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Income;
 use App\Http\Requests\IncomeRequest;
+use App\Models\PrimaryIncome;
 use App\Services\IncomeService;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Validation\ValidationException;
 
 class IncomeController extends Controller
 {
-    public function __construct(Income $model) {
+    public function __construct(PrimaryIncome $model) {
         $this->model = $model;
     }
 
@@ -23,7 +24,7 @@ class IncomeController extends Controller
     public function index()
     {
         $userId = Session::get('user')->id;
-        $incomes = Income::all()->where('user_id', '=', $userId);
+        $incomes = PrimaryIncome::all()->where('user_id', '=', $userId);
         return view('income.index', ['incomes' => $incomes]);
     }
 

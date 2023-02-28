@@ -19,9 +19,10 @@ use App\Http\Controllers\IncomeController;
 //return view('dashboard');
 //});
 
-Route::get('/dashboard/{id}', [UserController::class, 'index'])->name('dashboard');
+Route::get('/dashboard', [UserController::class, 'index'])->name('dashboard');
 Route::get('/user', [UserController::class, 'create'])->name('register');
 Route::get('/login', [UserController::class, 'login'])->name('login');
+Route::get('/', [UserController::class, 'login'])->name('login');
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 Route::post('/user/store', [UserController::class, 'store'])->name('store');
 Route::post('/validateLogin', [UserController::class, 'validateLogin'])->name('validateLogin');

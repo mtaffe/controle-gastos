@@ -22,9 +22,10 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($userId)
+    public function index()
     {
-        $user = User::find($userId);
+        $session = Session::get('user');
+        $user = User::find($session->id);
         return view('dashboard', ['user' => $user]);
     }
 

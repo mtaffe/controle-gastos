@@ -1,0 +1,13 @@
+Experiência em PHP: experiência de 2 anos
+
+Experiência em Laravel: experiência de 2 anos
+
+Experiência em Javascript: experiência de 1 ano e meio
+
+Experiência em Banco de dados Oracle: conheço, mas não tenho experiência
+
+Conhecimento em JQuery (desejável): experiência de 1 ano
+
+Conhecimento em PostgreSQL (desejável): conheço, mas sem experiência
+
+Conhecimento em Ionic (desejável): conheço apenas superficialmente

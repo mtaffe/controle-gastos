@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,12 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('primary_incomes', function (Blueprint $table) {
-            $table->id();
-            $table->foreignIdFor(User::class, 'user_id');
-            $table->string('name');
-            $table->decimal('value');
-            $table->timestamps();
+        Schema::table('primary_incomes', function (Blueprint $table) {
+            $table->softDeletes();
         });
     }
 
@@ -30,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('primary_incomes');
+        Schema::table('primary_incomes', function (Blueprint $table) {
+            $table->dropSoftDeletes();
+        });
     }
 };

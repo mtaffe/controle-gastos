@@ -25,9 +25,7 @@ class IncomeRequest extends FormRequest
     {
         return [
             "name" => "required",
-            "frequency" => "required",
             "value" => "required",
-            "income_type" => "required"
         ];
     }
 
@@ -40,9 +38,7 @@ class IncomeRequest extends FormRequest
     {
         return [
             'name.required' => 'O campo Nome é obrigatório',
-            'frequency.required' => 'O campo Frequência é obrigatório',
             'value.required' => 'O campo Valor é obrigatório',
-            'income_type.required' => 'O campo Tipo de Renda é obrigatório'
         ];
     }
 }

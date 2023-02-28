@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Income extends Model
+class PrimaryIncome extends Model
 {
     use HasFactory;
 
@@ -20,9 +20,8 @@ class Income extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function ies()
+    public function user()
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
-
 }
